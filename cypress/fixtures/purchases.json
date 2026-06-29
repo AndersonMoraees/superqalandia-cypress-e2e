@@ -1,0 +1,10 @@
+[
+  {
+    "id": "pur123",
+    "userId": "u1",
+    "items": [
+      { "productId": "p1", "quantity": 5 },
+      { "productId": "p2", "quantity": 2 }
+    ]
+  }
+]

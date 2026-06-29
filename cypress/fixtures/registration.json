@@ -1,0 +1,9 @@
+{
+  "nomeValido": "José Testa",
+  "nomeInvalido": "123123",
+  "emailExistente": "usuario@email.com",
+  "senhaCurta": "123",
+  "senhaValida": "1234",
+  "senhaDiferente": "4321",
+  "emailInvalido": "teste19_cadastro.com"
+}

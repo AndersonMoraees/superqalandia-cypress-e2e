@@ -1,0 +1,12 @@
+{
+  "admin": {
+    "email": "admin@superqa.com",
+    "password": "admin123",
+    "greeting": "Bem-vindo(a), Administrador!"
+  },
+  "padrao": {
+    "email": "usuario@email.com",
+    "password": "user123",
+    "greeting": "Bem-vindo(a), Maria Silva!"
+  }
+}
