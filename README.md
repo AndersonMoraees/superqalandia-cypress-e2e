@@ -87,15 +87,15 @@ app/
 └── index.html
 cypress/
 ├── e2e/
-│   ├── auth-login.cy.js
-│   ├── auth-register.cy.js
-│   ├── header-navigation.cy.js
-│   └── home-view.cy.js
+│   ├── cadastro.cy.js
+│   ├── header.cy.js
+│   ├── home.cy.js
+│   └── login.cy.js
 │
 ├── fixtures/
-│   ├── users.json
+│   ├── purchases.json
 │   ├── registration.json
-│   └── purchases.json
+│   └── users.json
 │
 └── support/
 │   ├── commands.js
