@@ -3,7 +3,12 @@
 ![Cypress](https://img.shields.io/badge/Cypress-E2E-69D3A7?logo=cypress&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black)
 ![Node.js](https://img.shields.io/badge/Node.js-16+-339933?logo=node.js&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Concluído-success)
+![Status](https://img.shields.io/badge/Status-Ativo-brightgreen)
+![Testes](https://img.shields.io/badge/Testes-41-blue)
+![Regras](https://img.shields.io/badge/Regras_de_Negócio-19-orange)
+![Bugs](https://img.shields.io/badge/Bugs_Documentados-6-red)
+
+---
 
 ## 📖 Sobre o projeto
 
@@ -16,9 +21,10 @@ A automação foi estruturada utilizando boas práticas, como:
 - ✅ Reutilização de sessão utilizando `cy.session()`
 - ✅ Organização dos testes por funcionalidade
 - ✅ Casos de teste identificados por CT (Caso de Teste)
+- ✅ Especificação funcional utilizando BDD (Gherkin)
 - ✅ Documentação de bugs utilizando `it.skip`
 
-O objetivo deste projeto é demonstrar conhecimentos em automação de testes, organização de código e manutenção de uma suíte de testes escalável.
+O objetivo deste projeto é demonstrar conhecimentos em automação de testes, organização de código, documentação técnica e manutenção de uma suíte de testes escalável.
 
 ---
 
@@ -27,7 +33,10 @@ O objetivo deste projeto é demonstrar conhecimentos em automação de testes, o
 - Cypress
 - JavaScript (ES6+)
 - Node.js
-- npm
+- NPM
+- BDD / Gherkin
+- Git
+- GitHub
 
 ---
 
@@ -69,14 +78,15 @@ O objetivo deste projeto é demonstrar conhecimentos em automação de testes, o
 
 ---
 
-# 📊 Cobertura dos testes
+# 📊 Cobertura do Projeto
 
-| Módulo | Casos de Teste |
-|---------|---------------:|
-| Autenticação | 22 |
-| Header e Navegação | 15 |
-| Home | 4 |
-| **Total** | **41** |
+| Artefato | Quantidade |
+|----------|-----------:|
+| Regras de Negócio | 19 |
+| Casos de Teste | 41 |
+| Especificações BDD | 14 |
+| Testes Automatizados | 41 |
+| Bugs Documentados | 6 |
 
 ---
 
@@ -85,6 +95,7 @@ O objetivo deste projeto é demonstrar conhecimentos em automação de testes, o
 ```text
 app/
 └── index.html
+
 cypress/
 ├── e2e/
 │   ├── cadastro.cy.js
@@ -100,11 +111,38 @@ cypress/
 └── support/
 │   ├── commands.js
 │   └── e2e.js
-│
-├── cypress.config.js
-├── package.json
-└── README.md
+
+docs/
+├── README.md
+├── regras-de-negocio.md
+├── casos-de-teste.md
+├── especificacao-bdd.md
+├── bug-reports.md
+└── assets/
+    └── bugs/
+
+cypress.config.js
+package.json
+README.md
 ```
+
+---
+
+# 📚 Documentação
+
+Além da suíte de testes automatizados, este projeto possui uma documentação completa do processo de Quality Assurance.
+
+Toda a documentação encontra-se na pasta **docs/**.
+
+| Documento | Descrição |
+|-----------|-----------|
+| 📋 `regras-de-negocio.md` | Regras funcionais documentadas da aplicação. |
+| 📝 `casos-de-teste.md` | Casos de teste elaborados a partir das regras de negócio. |
+| 📖 `especificacao-bdd.md` | Especificação funcional em BDD (Gherkin), representando os comportamentos esperados da aplicação. |
+| 🐞 `bug-reports.md` | Registro dos defeitos encontrados durante a execução dos testes. |
+| 📚 `docs/README.md` | Guia de navegação da documentação. |
+
+Essa estrutura demonstra a rastreabilidade entre regras de negócio, casos de teste, especificações BDD, automação e defeitos encontrados durante a validação da aplicação.
 
 ---
 
@@ -145,7 +183,7 @@ e2e: {
 }
 ```
 
-> **Nota:** Certifique-se de que a `baseUrl` em `cypress.config.js` esteja configurada para `http://127.0.0.1:5500/app`, garantindo que o Cypress aponte para a pasta correta onde o arquivo `index.html` está localizado.
+> **Nota:** Certifique-se de que a `baseUrl` esteja configurada para `http://127.0.0.1:5500/app`, garantindo que o Cypress aponte para a pasta onde o arquivo `index.html` está localizado.
 
 ---
 
@@ -169,6 +207,8 @@ npx cypress run
 
 # 📦 Comandos customizados
 
+O projeto define comandos reutilizáveis para simplificar a escrita e manutenção dos testes.
+
 | Comando | Descrição |
 |---------|-----------|
 | `cy.login(email, senha, opções)` | Realiza o login na aplicação. |
@@ -180,39 +220,72 @@ npx cypress run
 
 # 📌 Boas práticas aplicadas
 
+Durante o desenvolvimento da suíte foram adotadas práticas voltadas para organização, reutilização e escalabilidade dos testes.
+
 - Organização dos testes por funcionalidade
-- Reutilização de código através de Custom Commands
-- Separação das massas de dados em Fixtures
-- Uso de `cy.session()` para reduzir tempo de execução
+- Utilização de **Custom Commands**
+- Separação das massas de dados utilizando **Fixtures**
+- Reutilização de sessão através de `cy.session()`
 - Identificação dos casos de teste (CT-001 até CT-041)
-- Documentação dos bugs encontrados
-- Código preparado para manutenção e expansão
+- Documentação de defeitos encontrados
+- Estrutura preparada para manutenção e expansão
+- Separação entre documentação funcional e automação
+
+---
+
+# 📈 Rastreabilidade
+
+O projeto foi desenvolvido seguindo um fluxo completo de **Quality Assurance**, permitindo rastrear cada funcionalidade desde as regras de negócio até a documentação dos defeitos encontrados.
+
+```text
+Regras de Negócio
+        │
+        ▼
+Casos de Teste
+        │
+        ▼
+Especificação BDD
+        │
+        ▼
+Automação Cypress
+        │
+        ▼
+Bug Reports
+```
+
+Essa abordagem facilita a manutenção da suíte, garante maior cobertura dos requisitos e demonstra a relação entre especificação, validação e defeitos encontrados.
 
 ---
 
 # 🐞 Documentação de Bugs
 
-Os cenários que representam defeitos encontrados na aplicação foram mantidos na suíte utilizando `it.skip`.
+Os cenários que representam defeitos encontrados durante a validação da aplicação permanecem documentados na suíte através de `it.skip`.
 
-Cada teste possui comentários explicando:
+Além disso, cada defeito possui um relatório completo na documentação do projeto, contendo:
 
-- comportamento esperado;
-- comportamento atual;
-- motivo pelo qual o teste foi ignorado.
+- descrição;
+- passos para reprodução;
+- resultado esperado;
+- resultado obtido;
+- impacto;
+- severidade;
+- evidências.
 
-Essa abordagem permite documentar problemas conhecidos sem comprometer a execução da suíte.
+Essa estratégia permite preservar a rastreabilidade dos defeitos sem comprometer a execução da suíte automatizada.
 
 ---
 
-# 📈 Resultados esperados
+# 📈 Resultados
 
-Esta suíte valida os principais fluxos da aplicação, garantindo:
+Esta suíte automatizada valida os principais fluxos da aplicação, garantindo:
 
-- Integridade do processo de autenticação
-- Controle de acesso conforme perfil do usuário
-- Funcionamento da navegação
-- Exibição correta das vitrines de produtos
-- Consistência da interface
+- Integridade do processo de autenticação;
+- Controle de acesso conforme perfil do usuário;
+- Funcionamento da navegação;
+- Exibição correta das vitrines de produtos;
+- Consistência da interface.
+
+Além da automação, o projeto contempla documentação funcional, casos de teste, rastreabilidade e registro de defeitos, simulando um fluxo de trabalho utilizado em equipes de **Quality Assurance**.
 
 ---
 
@@ -226,12 +299,42 @@ Este projeto foi desenvolvido exclusivamente para fins de estudo, prática e dem
 
 Desenvolvido por **Anderson Moraes** como parte do portfólio de estudos em **Quality Assurance (QA)**.
 
+### Contato
+
 - GitHub: https://github.com/AndersonMoraees
+- LinkedIn: https://www.linkedin.com/in/anderson-moraees/
 
 ---
 
 # 🤝 Contribuições
 
-Contribuições são bem-vindas!
+Contribuições são sempre bem-vindas!
 
-Caso encontre melhorias ou queira adicionar novos cenários de teste, fique à vontade para abrir uma **Issue** ou enviar um **Pull Request**.
+Caso encontre oportunidades de melhoria ou queira sugerir novos cenários de teste, fique à vontade para:
+
+- abrir uma **Issue**;
+- enviar um **Pull Request**;
+- compartilhar sugestões para evolução da suíte.
+
+---
+
+# 🚀 Próximos Passos
+
+O projeto foi estruturado para facilitar sua evolução. Algumas melhorias planejadas são:
+
+- [ ] Testes de integração utilizando `cy.request()`
+- [ ] Testes de contrato utilizando `cy.intercept()`
+- [ ] Implementação do **Mochawesome Reporter**
+- [ ] Integração com **GitHub Actions (CI/CD)**
+- [ ] Execução automática em Pull Requests
+- [ ] Testes Cross Browser
+- [ ] Exploração de testes de Performance
+- [ ] Integração com Allure Report
+
+---
+
+## ⭐ Considerações Finais
+
+Este projeto foi desenvolvido com o objetivo de praticar e demonstrar conhecimentos em **Quality Assurance**, contemplando não apenas a automação dos testes, mas também a documentação necessária para garantir rastreabilidade entre requisitos, casos de teste, implementação e defeitos encontrados.
+
+Mais do que validar funcionalidades, esta suíte busca representar um fluxo de trabalho próximo ao utilizado em projetos reais de desenvolvimento de software.
